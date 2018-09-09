@@ -47,3 +47,13 @@ ul.product-props li{
     border: 1px solid black;
     max-width: 150px;
 }
+
+#loginToggle{
+    cursor: pointer;
+}
+
+.popup-form{
+    padding: 5px;
+    border: 2px black outset;
+
+}

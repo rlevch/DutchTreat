@@ -15,7 +15,15 @@
 
     var productInfo = $(".product-props li");
     productInfo.on("click", function () {
-        console.log("You clicked on " + $(this).text());
+        console.log("clicked one on the items: " + $(this).text());
     });
+
+    var $loginToggle = $("#loginToggle");
+    var $popupForm = $(".popup-form");
+
+    $loginToggle.on("click", function () {
+        $popupForm.fadeToggle(1000);
+    });
+
 
 });

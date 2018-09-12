@@ -5,6 +5,7 @@
 
   "ConnectionStrings": {
     "DutchConnectionString": "server=(localdb)\\MSSQLLocalDB;Database=DutchTreatDb;Integrated Security=true;MultipleActiveResultSets=true;"
+    //"DutchConnectionString": "Server=.\\MSSQLSERVER2014;Database=DutchTreat;User Id=dutchadmin;Password=Dragon12655621$"
   },
   "Logging": {
     "LogLevel": {

@@ -7,11 +7,19 @@
     "DutchConnectionString": "server=(localdb)\\MSSQLLocalDB;Database=DutchTreatDb;Integrated Security=true;MultipleActiveResultSets=true;"
     //"DutchConnectionString": "Server=.\\MSSQLSERVER2014;Database=DutchTreat;User Id=dutchadmin;Password=Dragon12655621$"
   },
+  
   "Logging": {
     "LogLevel": {
 
       "Default": "Information",
-      "Microsoft":  "Warning"
+      "Microsoft": "Warning"
     }
-    }
+  },
+  
+  "Tokens": {
+    "Key": "fdsf kldklskl124bkjb34m 121n",
+    "Issuer": "localhost",
+    "Audience": ""
+  }
+
 }

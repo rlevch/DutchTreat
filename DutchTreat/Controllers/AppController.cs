@@ -64,9 +64,13 @@ namespace DutchTreat.Controllers
             //              select p;
 
             //or by repository
-            var results = _repository.GetAllProducts();
+            //var results = _repository.GetAllProducts();
 
-            return View(results);
+            //return View(results);
+
+            //Now we use Angular component
+
+            return View();
         }
 
     }

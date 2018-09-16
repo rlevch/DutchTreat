@@ -36,6 +36,12 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\ClientApp\out-tsc\ClientApp\app\shop\" />
+    <Folder Include="wwwroot\ClientApp\out-tsc\ClientApp\environments\" />
+    <Folder Include="wwwroot\ClientApp\out-tsc\wwwroot\ts\" />
+  </ItemGroup>
+
   <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 </Project>

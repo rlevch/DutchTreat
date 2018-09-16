@@ -1,15 +1,25 @@
 {
-  "include": [ "wwwroot/ts/**/*.ts" ],
-
+  "compileOnSave": false,
+  "include": [
+    "./ClientApp",
+    "./wwwroot/ts"
+  ],
   "compilerOptions": {
-  //  "noImplicitAny": false,
-  //  "noEmitOnError": true,
-  //  "removeComments": false,
+    "baseUrl": "./",
+    "outDir": "./wwwroot/ClientApp/out-tsc",
     "sourceMap": true,
-    "target": "es5"
-  },
- /* "exclude": [
-    "node_modules",
-    "wwwroot"
-  ]*/
+    "declaration": false,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ]
+  }
 }

@@ -348,6 +348,7 @@ var DataService = /** @class */ (function () {
     function DataService(http) {
         this.http = http;
         this.token = "";
+        //public checkout;
         this.order = new _order__WEBPACK_IMPORTED_MODULE_3__["Order"]();
         this.products = [];
     }
@@ -379,19 +380,19 @@ var DataService = /** @class */ (function () {
             return true;
         }));
     };
-    /*  public checkout() {
-          if (!this.order.orderNumber) {
-              this.order.orderNumber = this.order.orderDate.getFullYear().toString() + this.order.orderDate.getTime().toString();
-          }
-  
-          return this.http.post("/api/orders", this.order, {
-              headers: new Headers({ "Authorization": "Bearer " + this.token })
-          })
-              .map(response => {
-                  this.order = new Order();
-                  return true;
-              });
-      }*/
+    DataService.prototype.checkout = function () {
+        var _this = this;
+        if (!this.order.orderNumber) {
+            this.order.orderNumber = this.order.orderDate.getFullYear().toString() + this.order.orderDate.getTime().toString();
+        }
+        return this.http.post("/api/orders", this.order, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({ "Authorization": "Bearer " + this.token })
+        })
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) {
+            _this.order = new _order__WEBPACK_IMPORTED_MODULE_3__["Order"]();
+            return true;
+        }));
+    };
     DataService.prototype.AddToOrder = function (product) {
         var item = this.order.items.find(function (i) { return i.productId == product.id; });
         if (item != null) {

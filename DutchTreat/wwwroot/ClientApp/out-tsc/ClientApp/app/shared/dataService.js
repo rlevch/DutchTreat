@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 //import 'rxjs/add/operator/map';
 import { map } from "rxjs/operators";
@@ -19,6 +19,7 @@ var DataService = /** @class */ (function () {
     function DataService(http) {
         this.http = http;
         this.token = "";
+        //public checkout;
         this.order = new orders.Order();
         this.products = [];
     }
@@ -32,7 +33,7 @@ var DataService = /** @class */ (function () {
     };
     Object.defineProperty(DataService.prototype, "loginRequired", {
         get: function () {
-            return this.token.length == 0 || this.tokenExpiration > new Date();
+            return this.token.length == 0 || this.tokenExpiration < new Date();
         },
         enumerable: true,
         configurable: true
@@ -50,19 +51,19 @@ var DataService = /** @class */ (function () {
             return true;
         }));
     };
-    /*  public checkout() {
-          if (!this.order.orderNumber) {
-              this.order.orderNumber = this.order.orderDate.getFullYear().toString() + this.order.orderDate.getTime().toString();
-          }
-  
-          return this.http.post("/api/orders", this.order, {
-              headers: new Headers({ "Authorization": "Bearer " + this.token })
-          })
-              .map(response => {
-                  this.order = new Order();
-                  return true;
-              });
-      }*/
+    DataService.prototype.checkout = function () {
+        var _this = this;
+        if (!this.order.orderNumber) {
+            this.order.orderNumber = this.order.orderDate.getFullYear().toString() + this.order.orderDate.getTime().toString();
+        }
+        return this.http.post("/api/orders", this.order, {
+            headers: new HttpHeaders({ "Authorization": "Bearer " + this.token })
+        })
+            .pipe(map(function (response) {
+            _this.order = new orders.Order();
+            return true;
+        }));
+    };
     DataService.prototype.AddToOrder = function (product) {
         var item = this.order.items.find(function (i) { return i.productId == product.id; });
         if (item != null) {

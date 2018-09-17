@@ -18,7 +18,7 @@ export class DataService {
     public token: string = "";
     public tokenExpiration: Date;
 
-    public checkout;
+    //public checkout;
 
     public order: orders.Order = new orders.Order();
 
@@ -56,19 +56,20 @@ export class DataService {
                 }));
     }
 
-  /*  public checkout() {
+    public checkout() {
         if (!this.order.orderNumber) {
             this.order.orderNumber = this.order.orderDate.getFullYear().toString() + this.order.orderDate.getTime().toString();
         }
 
         return this.http.post("/api/orders", this.order, {
-            headers: new Headers({ "Authorization": "Bearer " + this.token })
+            headers: new HttpHeaders({ "Authorization": "Bearer " + this.token })
         })
-            .map(response => {
-                this.order = new Order();
+          .pipe(
+            map((response: any) => {
+                this.order = new orders.Order();
                 return true;
-            });
-    }*/
+            }));
+    }
 
     public AddToOrder(product: Product) {
 

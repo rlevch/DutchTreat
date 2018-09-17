@@ -9,14 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map } from 'rxjs/operators';
+//import 'rxjs/add/operator/map';
+import { map } from "rxjs/operators";
+//import { Response, Headers } from "@angular/http";
 //import { Order, OrderItem } from "./order";
 //or like this:
 import * as orders from "./order";
 var DataService = /** @class */ (function () {
     function DataService(http) {
         this.http = http;
-        //public order: Order;
+        this.token = "";
         this.order = new orders.Order();
         this.products = [];
     }
@@ -28,6 +30,39 @@ var DataService = /** @class */ (function () {
             return true;
         }));
     };
+    Object.defineProperty(DataService.prototype, "loginRequired", {
+        get: function () {
+            return this.token.length == 0 || this.tokenExpiration > new Date();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    DataService.prototype.login = function (creds) {
+        var _this = this;
+        return this.http.post("/account/createtoken", creds)
+            .pipe(map(function (response) {
+            /*               let tokenInfo = response;
+                               this.token = tokenInfo.token;
+                               this.tokenExpiration = tokenInfo.expiration;*/
+            _this.token = response.token;
+            // this.tokenExpiration = response.token.validTo;
+            _this.tokenExpiration = new Date(response.expiration);
+            return true;
+        }));
+    };
+    /*  public checkout() {
+          if (!this.order.orderNumber) {
+              this.order.orderNumber = this.order.orderDate.getFullYear().toString() + this.order.orderDate.getTime().toString();
+          }
+  
+          return this.http.post("/api/orders", this.order, {
+              headers: new Headers({ "Authorization": "Bearer " + this.token })
+          })
+              .map(response => {
+                  this.order = new Order();
+                  return true;
+              });
+      }*/
     DataService.prototype.AddToOrder = function (product) {
         var item = this.order.items.find(function (i) { return i.productId == product.id; });
         if (item != null) {

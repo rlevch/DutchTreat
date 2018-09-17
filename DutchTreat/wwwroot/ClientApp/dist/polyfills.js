@@ -5473,7 +5473,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Projects\DutchTreat\DutchTreat\ClientApp\polyfills.ts */"./polyfills.ts");
+module.exports = __webpack_require__(/*! D:\Qsync\ANDROID\PROJECTS\DutchTreat\DutchTreat\ClientApp\polyfills.ts */"./polyfills.ts");
 
 
 /***/ })

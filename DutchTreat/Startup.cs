@@ -55,7 +55,14 @@ namespace DutchTreat
 
             services.AddDbContext<DutchContext>(cfg=>
             {
-                cfg.UseSqlServer(_config.GetConnectionString("DutchConnectionString"));
+                if (_env.IsDevelopment())
+                {
+                    cfg.UseSqlServer(_config.GetConnectionString("DevDutchConnectionString"));
+                }
+                else
+                {
+                    cfg.UseSqlServer(_config.GetConnectionString("DutchConnectionString"));
+                }
             });
 
             services.AddAutoMapper();

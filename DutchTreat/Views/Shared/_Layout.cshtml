@@ -4,9 +4,16 @@
     <meta charset="utf-8" />
     <title>Dutch treat: @ViewBag.Title</title>
 
-    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-    <link href="~/lib/font-awesome/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet" />
-    <link href="~/css/site.css" rel="stylesheet" />
+    <environment names="Development">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/lib/font-awesome/web-fonts-with-css/css/fontawesome-all.css" rel="stylesheet" />
+        <link href="~/css/site.css" rel="stylesheet" />
+    </environment>
+    <environment names="Staging,Production">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/lib/font-awesome/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet" />
+        <link href="~/css/site.css" rel="stylesheet" />
+    </environment>
 </head>
 <body>
 
@@ -39,13 +46,13 @@
                     {
                         <a class="nav-link btn-outline-primary" <a asp-controller="Account" asp-action="Login">Login<span class="sr-only">(current)</span></a>
                     }
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        More
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" <a asp-controller="App" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            More
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" <a asp-controller="App" asp-action="Index">Home</a>
                         <a class="dropdown-item" <a asp-controller="App" asp-action="Contact">Contact</a>
                         <a class="dropdown-item" <a asp-controller="App" asp-action="About">About</a>
                         <a class="dropdown-item" <a asp-controller="App" asp-action="Shop">Shop</a>
@@ -58,65 +65,75 @@
                         {
                             <a class="dropdown-item" <a asp-controller="Account" asp-action="Login">Login</a>
                         }
-                    </div>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
-
-    @*<nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
                         </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
-        </nav>*@
+        </nav>
 
-    <section class="container">
-        <h2 class="text-center">@ViewBag.Title</h2>
-        @RenderBody()
-    </section>
-    <footer class="container">
-        <div class="text-center">Copyright 2018 Dutch Treat LLC</div>
-    </footer>
+        @*<nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Disabled</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>*@
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/js/index.js"></script>
+        <section class="container">
+            <h2 class="text-center">@ViewBag.Title</h2>
+            @RenderBody()
+        </section>
+        <footer class="container">
+            <div class="text-center">Copyright 2018 Dutch Treat LLC</div>
+        </footer>
 
-    @RenderSection("scripts", false)
-</body>
+        <environment names="Development">
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/index.js"></script>
+        </environment>
+        <environment names="Staging,Production">
+            <script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"></script>
+            <script src="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"></script>
+            <script src="~/dist/dutchtreat.min.js" asp-append-version="true"></script>
+        </environment>
+
+        @RenderSection("scripts", false)
+    </body>
 </html>

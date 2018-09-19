@@ -76,8 +76,9 @@ namespace DutchTreat
 
             services.AddMvc(opt=>
                 {
-                    if (_env.IsProduction() && _config["DisableSSL"] != "true")
-                    {
+//                     if (_env.IsProduction() && _config["DisableSSL"] != "true")
+                      if (_config["DisableSSL"] != "true")
+                 {
                         opt.Filters.Add(new RequireHttpsAttribute());
                     }
                 })
@@ -106,8 +107,8 @@ namespace DutchTreat
                 cfg.MapRoute("Default", "/{controller}/{action}/{id?}", new { controller = "App", Action = "Index" });
             });
 
-            if(env.IsDevelopment())
-            {
+  //          if(env.IsDevelopment())
+  //          {
                 //Seed the database
                 using (var scope = app.ApplicationServices.CreateScope())
                 {
@@ -115,6 +116,6 @@ namespace DutchTreat
                     seeder.Seed().Wait();
                 }
             }
-        }
+  //      }
     }
 }

@@ -9,17 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-//import 'rxjs/add/operator/map';
 import { map } from "rxjs/operators";
-//import { Response, Headers } from "@angular/http";
 //import { Order, OrderItem } from "./order";
 //or like this:
 import * as orders from "./order";
+//import { Response } from "selenium-webdriver/http";
 var DataService = /** @class */ (function () {
     function DataService(http) {
         this.http = http;
         this.token = "";
-        //public checkout;
         this.order = new orders.Order();
         this.products = [];
     }

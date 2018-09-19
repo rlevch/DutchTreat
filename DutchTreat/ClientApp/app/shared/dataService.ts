@@ -1,14 +1,12 @@
 ﻿import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-//import 'rxjs/add/operator/map';
 import { map } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { Product } from "./product";
-//import { Response, Headers } from "@angular/http";
 //import { Order, OrderItem } from "./order";
 //or like this:
 import * as orders from "./order";
-import { Response } from "selenium-webdriver/http";
+//import { Response } from "selenium-webdriver/http";
 
 @Injectable()
 export class DataService {
@@ -17,8 +15,6 @@ export class DataService {
 
     public token: string = "";
     public tokenExpiration: Date;
-
-    //public checkout;
 
     public order: orders.Order = new orders.Order();
 

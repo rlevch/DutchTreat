@@ -338,17 +338,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-//import 'rxjs/add/operator/map';
 
-//import { Response, Headers } from "@angular/http";
 //import { Order, OrderItem } from "./order";
 //or like this:
 
+//import { Response } from "selenium-webdriver/http";
 var DataService = /** @class */ (function () {
     function DataService(http) {
         this.http = http;
         this.token = "";
-        //public checkout;
         this.order = new _order__WEBPACK_IMPORTED_MODULE_3__["Order"]();
         this.products = [];
     }
@@ -469,7 +467,7 @@ var OrderItem = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Shopping Cart</h3>\r\n<div><strong>Number of items</strong>: {{ data.order.items.length }}</div>\r\n<div><strong>Subtotal</strong>: {{ data.order.subtotal | currency:\"AUD\":true }}</div>\r\n<table class=\"table lh-condensed table-hover\">\r\n    <thead>\r\n        <tr>\r\n            <td>Product</td>\r\n            <td>Quantity</td>\r\n            <td>Price</td>\r\n            <td>Total</td>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr *ngFor=\"let o of data.order.items\">\r\n            <td>{{ o.productCategory }} - {{ o.productTitle }}</td>\r\n            <td>{{ o.quantity }}</td>\r\n            <td>{{ o.unitPrice | currency:\"AUD\":true }}</td>\r\n            <td>{{ (o.unitPrice * o.quantity) | currency:\"AUD\":true }}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<button class=\"btn btn-success\" *ngIf=\"data.order.items.length > 0\" (click)=\"onCheckout()\">Checkout</button>"
+module.exports = "<h3 class=\"text-center\">Shopping Cart</h3>\r\n<div><strong>Number of items</strong>: {{ data.order.items.length }}</div>\r\n<div><strong>Subtotal</strong>: {{ data.order.subtotal | currency:\"AUD\":true }}</div>\r\n<table class=\"table lh-condensed table-hover\">\r\n    <thead>\r\n        <tr>\r\n            <td>Product</td>\r\n            <td>Quantity</td>\r\n            <td>Price</td>\r\n            <td>Total</td>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr *ngFor=\"let o of data.order.items\">\r\n            <td>{{ o.productCategory }} - {{ o.productTitle }}</td>\r\n            <td>{{ o.quantity }}</td>\r\n            <td>{{ o.unitPrice | currency:\"AUD\":true }}</td>\r\n            <td>{{ (o.unitPrice * o.quantity) | currency:\"AUD\":true }}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<button class=\"btn btn-success\" *ngIf=\"data.order.items.length > 0\" (click)=\"onCheckout()\">Checkout</button>"
 
 /***/ }),
 
@@ -710,7 +708,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Qsync\ANDROID\PROJECTS\DutchTreat\DutchTreat\ClientApp\main.ts */"./main.ts");
+module.exports = __webpack_require__(/*! D:\Projects\DutchTreat\DutchTreat\ClientApp\main.ts */"./main.ts");
 
 
 /***/ })

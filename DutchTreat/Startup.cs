@@ -76,8 +76,9 @@ namespace DutchTreat
 
             services.AddMvc(opt=>
                 {
-                    if (_env.IsProduction() && _config["DisableSSL"] != "true")
-                    {
+//                     if (_env.IsProduction() && _config["DisableSSL"] != "true")
+                      if (_config["DisableSSL"] != "true")
+                 {
                         opt.Filters.Add(new RequireHttpsAttribute());
                     }
                 })
@@ -114,7 +115,7 @@ namespace DutchTreat
                     var seeder = scope.ServiceProvider.GetService<DutchSeeder>();
                     seeder.Seed().Wait();
                 }
-  //          }
-        }
+            }
+  //      }
     }
 }

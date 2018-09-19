@@ -3,12 +3,12 @@
     "Favorite": "blue"
   },
 
-  "DisableSSL": false,
+  "DisableSSL": "true",
 
   "ConnectionStrings": {
-    //"DevDutchConnectionString": "Server=MOW1WKS141;Database=DutchTreatDb;User Id=sa;Password=12655621",
     "DevDutchConnectionString": "server=(localdb)\\MSSQLLocalDB;Database=DutchTreatDb;Integrated Security=true;MultipleActiveResultSets=true;",
-    "DutchConnectionString": "Server=MSSQLSERVER2014;Database=DutchTreat;User Id=dutchadmin;Password=Dragon12655621$"
+    //"DutchConnectionString": "Server=MSSQLSERVER2014;Database=DutchTreat;User Id=dutchadmin;Password=Dragon12655621$"
+    "DutchConnectionString": "Data Source=SQL6004.site4now.net;Database=DB_A40EA8_DutchTreat;User Id=DB_A40EA8_DutchTreat_admin;Password=dragon12655621"
   },
   
   "Logging": {

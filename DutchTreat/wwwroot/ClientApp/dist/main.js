@@ -338,17 +338,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-//import 'rxjs/add/operator/map';
 
-//import { Response, Headers } from "@angular/http";
 //import { Order, OrderItem } from "./order";
 //or like this:
 
+//import { Response } from "selenium-webdriver/http";
 var DataService = /** @class */ (function () {
     function DataService(http) {
         this.http = http;
         this.token = "";
-        //public checkout;
         this.order = new _order__WEBPACK_IMPORTED_MODULE_3__["Order"]();
         this.products = [];
     }

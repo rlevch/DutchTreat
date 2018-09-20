@@ -3,7 +3,7 @@
     var x = 0;
     var s = "";
 
-    console.log("Hello Software Developer");
+    console.log("Hello Roman Levchenkov :)");
 
     var TheForm = $("#theForm");
     TheForm.hide();
